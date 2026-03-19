@@ -16,12 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("Backend is working 🚀")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),   # 👈 ADD THIS
     path('api/products/', include('products.urls')),
     path('api/cart/', include('cart.urls')),
     path('api/wishlist/', include('wishlist.urls')),
     path('api/auth/', include('users.urls')),
     path('api/orders/',include('orders.urls')),
 ]
+
+
