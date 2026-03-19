@@ -4,6 +4,10 @@ from rest_framework.permissions import IsAdminUser
 from django.shortcuts import get_object_or_404
 from .models import Product
 from .serializers import ProductSerializer
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Backend is working 🚀")
 
 
 @api_view(['GET', 'POST'])
